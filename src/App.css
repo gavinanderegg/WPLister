@@ -1,0 +1,23 @@
+.App {
+	text-align: center;
+}
+
+.App-header {
+	background-color: #222;
+	padding: 20px;
+	color: white;
+}
+
+.App-url {
+	margin-right: 12px;
+	font-size: 22px;
+}
+
+.App-load {
+	font-size: 22px;
+}
+
+.App-form {
+	padding: 20px;
+}
+
