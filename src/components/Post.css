@@ -1,0 +1,8 @@
+.Post-content {
+	display: none;
+}
+
+.Post-content.open {
+	display: block;
+}
+
