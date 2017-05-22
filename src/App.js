@@ -53,7 +53,7 @@ class App extends Component {
 	render() {
 		var message;
 
-		if (this.state.error !== false && this.state.posts == []) {
+		if (this.state.error !== false && this.state.posts === []) {
 			message = this.state.error;
 		} else {
 			var posts = this.state.posts.map((post, index) => {
