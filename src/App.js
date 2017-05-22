@@ -8,7 +8,7 @@ class App extends Component {
 		this.state = {
 			searchText: '',
 			posts: [],
-			error: "asdfads",
+			error: '',
 		};
 
 		this._searchTextChange = this._searchTextChange.bind(this);
@@ -24,27 +24,44 @@ class App extends Component {
 	_handleSearch() {
 		var currentText = this.state.searchText;
 
-		// https://public-api.wordpress.com/rest/v1.1/sites/apidemo.wordpress.com/posts/?number=1
-		// (https:\/\/)?(.*?\.wordpress.com).*
+		var url = currentText.match(/(https:\/\/)?(.*?\.wordpress.com).*/m);
 
-		this.setState({
-			text: currentText
-		})
+		// Demo URL: apidemo.wordpress.com
+		if (url !== null && url[2] !== undefined && url[2] !== '') {
+			fetch('https://public-api.wordpress.com/rest/v1.1/sites/' + url[2] + '/posts/?number=10', {
+				method: 'GET'
+			}).then((response) => {
+				if (response.ok) {
+					response.json().then((json) => {
+						this.setState({
+							posts: json.posts,
+						});
+					});
+				} else {
+					this.setState({
+						error: url[2] + ' returned a 404'
+					});
+				}
+			});
+		} else {
+			this.setState({
+				error: 'No WordPress.com URL found'
+			});
+		}
 	}
 
 	render() {
 		var message;
 
-		if (this.state.error !== false) {
+		if (this.state.error !== false && this.state.posts == []) {
 			message = this.state.error;
 		} else {
-			message = this.state.text;
-		}
+			var posts = this.state.posts.map((post, index) => {
+				return <li key={index}>{post.title}</li>;
+			});
 
-		// var namesList = names.map(function(name) {
-		// 	return <li>{name}</li>;
-		// });
-		// return <ul>{ namesList }</ul>
+			message = <ul>{posts}</ul>
+		}
 
 		return (
 			<div className="App">
