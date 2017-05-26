@@ -1,8 +1,22 @@
 .Post-content {
 	display: none;
+
 }
 
 .Post-content.open {
 	display: block;
 }
 
+.Post-item {
+	margin-top: 12px;
+	padding: 24px 24px 0 24px;
+}
+
+.Post-title {
+	background: #EEE;
+	padding: 24px;
+}
+
+.Post-content {
+	padding: 24px;
+}

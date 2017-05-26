@@ -36,7 +36,7 @@ class Post extends Component {
 		// **************************************************************
 
 		return (
-			<div>
+			<div className="Post-item">
 				<div className="Post-title" dangerouslySetInnerHTML={{__html: this.props.title}} onClick={this._toggleContent}></div>
 				<div className={contentClasses} dangerouslySetInnerHTML={{__html: this.props.content}}></div>
 			</div>

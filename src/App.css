@@ -1,11 +1,39 @@
+body {
+	background: #EEE;
+}
+
 .App {
-	text-align: center;
+	text-align: left;
 }
 
 .App-header {
 	background-color: #222;
 	padding: 20px;
 	color: white;
+	text-align: center;
+}
+
+.App-content {
+	margin: auto;
+	max-width: 980px;
+	padding: 24px 24px 48px 24px;
+	background: #FFF;
+	font-size: 18px;
+}
+
+.App-form {
+	text-align: center;
+}
+
+.App-status {
+	text-align: center;
+	color: #C00;
+}
+
+.App-info {
+	padding-bottom: 12px;
+	border-bottom: 1px solid #CCC;
+	text-align: center;
 }
 
 .App-url {

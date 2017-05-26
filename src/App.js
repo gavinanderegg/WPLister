@@ -105,18 +105,20 @@ class App extends Component {
 				<div className="App-header">
 					<h2>WordPress.com Lister</h2>
 				</div>
-				<div className="App-form">
-					<input type="text" className="App-url" onChange={this._searchTextChange} />
-					<button className="App-load" onClick={this._handleSearch}>Load</button>
-				</div>
-				<div className="App-status">
-					{statusMessage}
-				</div>
-				<div className="App-info">
-					{info}
-				</div>
 				<div className="App-content">
-					{posts}
+					<div className="App-form">
+						<input type="text" className="App-url" onChange={this._searchTextChange} />
+						<button className="App-load" onClick={this._handleSearch}>Load</button>
+					</div>
+					<div className="App-status">
+						{statusMessage}
+					</div>
+					<div className="App-info">
+						{info}
+					</div>
+					<div className="App-posts">
+						{posts}
+					</div>
 				</div>
 			</div>
 		);
